@@ -5,31 +5,12 @@ import { IParkRepository } from '../IParkRepository';
 class ParkRepositoryInMemory implements IParkRepository {
     parks: Park[] = [];
 
-    async create({
-        id,
-        car_id,
-        car_brand,
-        car_model,
-        car_color,
-        departure_date,
-        left_date,
-        total_amount,
-        created_at,
-        updated_at,
-    }: IParkDTO): Promise<Park> {
+    async create(data: IParkDTO): Promise<Park> {
         const park = new Park();
 
         Object.assign(park, {
-            id,
-            car_id,
-            car_brand,
-            car_model,
-            car_color,
-            departure_date,
-            left_date,
-            total_amount,
-            created_at,
-            updated_at,
+            ...data,
+            departure_date: new Date(),
         });
 
         this.parks.push(park);
@@ -37,18 +18,16 @@ class ParkRepositoryInMemory implements IParkRepository {
         return park;
     }
 
+    async findByLicensePlate(car_id: string): Promise<Park> {
+        const parkByPlate = this.parks.find(park => park.car_id === car_id);
+
+        return parkByPlate;
+    }
+
     async listAll(): Promise<Park[]> {
         const parkList = this.parks;
 
         return parkList;
-    }
-
-    async listByLicensePlate(car_id: string): Promise<Park[]> {
-        const parkByPlate = this.parks.filter(
-            element => element.car_id === car_id,
-        );
-
-        return parkByPlate;
     }
 
     async delete(id: string): Promise<void> {
