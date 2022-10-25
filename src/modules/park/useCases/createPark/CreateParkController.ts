@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import { ParkRepositoryInMemory } from '../../local/in-memory/ParkRepositoryInMemory';
 import { CreateParkUseCase } from './CreateParkUseCase';
 
 class CreateParkController {

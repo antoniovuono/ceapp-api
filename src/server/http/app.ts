@@ -3,6 +3,7 @@ import express, { NextFunction, Request, Response } from 'express';
 
 import { router } from './routes';
 import { AppError } from '../../errors/AppError';
+import { CreateConnection } from '../../database';
 
 const app = express();
 
@@ -24,5 +25,13 @@ app.use(
         });
     },
 );
+
+CreateConnection()
+    .then(() => {
+        console.log('Data source connected successfully');
+    })
+    .catch(error => {
+        console.log(`Error connectin to database: ${error.message}`);
+    });
 
 export { app };
