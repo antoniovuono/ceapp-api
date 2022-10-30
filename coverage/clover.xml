@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666568669560" clover="3.2.0">
-  <project timestamp="1666568669560" name="All files">
-    <metrics statements="121" coveredstatements="114" conditionals="10" coveredconditionals="10" methods="9" coveredmethods="7" elements="140" coveredelements="131" complexity="0" loc="121" ncloc="121" packages="4" files="4" classes="4"/>
+<coverage generated="1667074492338" clover="3.2.0">
+  <project timestamp="1667074492338" name="All files">
+    <metrics statements="139" coveredstatements="132" conditionals="10" coveredconditionals="10" methods="9" coveredmethods="7" elements="158" coveredelements="149" complexity="0" loc="139" ncloc="139" packages="4" files="4" classes="4"/>
     <package name="errors">
       <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="AppError.ts" path="/Users/antoniovuono/projetos/CEPAPP/ceapp-api/src/errors/AppError.ts">
@@ -21,9 +21,9 @@
       </file>
     </package>
     <package name="modules.park.infra.entities">
-      <metrics statements="31" coveredstatements="31" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="49" coveredstatements="49" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Park.ts" path="/Users/antoniovuono/projetos/CEPAPP/ceapp-api/src/modules/park/infra/entities/Park.ts">
-        <metrics statements="31" coveredstatements="31" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="49" coveredstatements="49" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -47,14 +47,32 @@
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
     </package>
     <package name="modules.park.local.in-memory">

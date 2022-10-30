@@ -1,9 +1,11 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 
+import '../../container';
 import { router } from './routes';
 import { AppError } from '../../errors/AppError';
-import { CreateConnection } from '../../database';
+import { createConnection } from '../../database';
 
 const app = express();
 
@@ -26,7 +28,7 @@ app.use(
     },
 );
 
-CreateConnection()
+createConnection()
     .then(() => {
         console.log('Data source connected successfully');
     })

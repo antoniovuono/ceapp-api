@@ -7,10 +7,12 @@ const AppDataSource = new DataSource({
     username: 'admin',
     password: 'admin123',
     database: 'ceapp-api',
+    entities: ['./src/modules/**/infra/entities/*.ts'],
+    migrations: ['./src/database/migrations/*.ts'],
 });
 
-function CreateConnection(host = 'projects_database'): Promise<DataSource> {
+function createConnection(host = 'projects_database'): Promise<DataSource> {
     return AppDataSource.setOptions({ host }).initialize();
 }
 
-export { AppDataSource, CreateConnection };
+export { AppDataSource, createConnection };

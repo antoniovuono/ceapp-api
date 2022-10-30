@@ -4,10 +4,10 @@ import { IParkDTO } from '../../dtos/IParkDTO';
 import { Park } from '../../infra/entities/Park';
 import { IParkRepository } from '../../local/IParkRepository';
 
-// @injectable()
+@injectable()
 class CreateParkUseCase {
     constructor(
-        // @inject('ParkRepository')
+        @inject('ParkRepository')
         private parksRepository: IParkRepository,
     ) {}
 
