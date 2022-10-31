@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev src/server/http/server.ts --transpile-only --inspect --ignore-watch node_modules --respawn src/server/http/server.ts",
     "typeorm-run": "ts-node-dev ./node_modules/typeorm/cli.js -d src/database/index.ts",
-    "test": "jest"
+    "test": "NODE_ENV=test && jest --runInBand --detectOpenHandles"
   },
   "dependencies": {
     "@types/express": "^4.17.14",
@@ -15,6 +15,7 @@
     "express-async-errors": "^3.1.1",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
+    "supertest": "^6.3.1",
     "tsyringe": "^4.7.0",
     "typeorm": "^0.3.10",
     "uuid": "^9.0.0"

@@ -33,8 +33,13 @@ export class CreatePark1666750308436 implements MigrationInterface {
                         default: 'now()',
                     },
                     {
-                        name: 'left_hour',
+                        name: 'left_date',
                         type: 'timestamp',
+                        isNullable: true,
+                    },
+                    {
+                        name: 'total_amount',
+                        type: 'numeric',
                         isNullable: true,
                     },
                     {

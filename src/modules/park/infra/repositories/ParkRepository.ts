@@ -19,11 +19,13 @@ class ParkRepository implements IParkRepository {
         return createPark;
     }
 
-    listAll(): Promise<Park[]> {
-        throw new Error('Method not implemented.');
+    async findByLicensePlate(car_id: string): Promise<Park> {
+        const park = this.repository.findOneBy({ car_id });
+
+        return park;
     }
 
-    findByLicensePlate(car_id: string): Promise<Park> {
+    listAll(): Promise<Park[]> {
         throw new Error('Method not implemented.');
     }
 

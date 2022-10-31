@@ -12,7 +12,10 @@ const AppDataSource = new DataSource({
 });
 
 function createConnection(host = 'projects_database'): Promise<DataSource> {
-    return AppDataSource.setOptions({ host }).initialize();
+    return AppDataSource.setOptions({
+        host: process.env.NODE_ENV === 'test' ? 'localhost' : host,
+        database: process.env.NODE_ENV === 'test' ? 'ceapp_test' : 'ceapp-api',
+    }).initialize();
 }
 
 export { AppDataSource, createConnection };
