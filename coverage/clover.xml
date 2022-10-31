@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1667240020099" clover="3.2.0">
-  <project timestamp="1667240020099" name="All files">
-    <metrics statements="346" coveredstatements="326" conditionals="23" coveredconditionals="20" methods="18" coveredmethods="13" elements="387" coveredelements="359" complexity="0" loc="346" ncloc="346" packages="10" files="12" classes="12"/>
+<coverage generated="1667244408132" clover="3.2.0">
+  <project timestamp="1667244408132" name="All files">
+    <metrics statements="377" coveredstatements="353" conditionals="23" coveredconditionals="20" methods="19" coveredmethods="13" elements="419" coveredelements="386" complexity="0" loc="377" ncloc="377" packages="11" files="13" classes="13"/>
     <package name="container">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="/Users/antoniovuono/projetos/CEPAPP/ceapp-api/src/container/index.ts">
@@ -125,6 +125,43 @@
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="modules.accounts.infra.entities">
+      <metrics statements="31" coveredstatements="27" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="User.ts" path="/Users/antoniovuono/projetos/CEPAPP/ceapp-api/src/modules/accounts/infra/entities/User.ts">
+        <metrics statements="31" coveredstatements="27" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
       </file>
     </package>
     <package name="modules.park.infra.entities">

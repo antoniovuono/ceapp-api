@@ -1,4 +1,4 @@
-interface IParkDTO {
+export interface IParkDTO {
     id?: string;
     car_id: string;
     car_brand: string;
@@ -7,5 +7,3 @@ interface IParkDTO {
     left_date?: Date;
     total_amount?: number;
 }
-
-export { IParkDTO };
