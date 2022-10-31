@@ -1,5 +1,5 @@
-import { DataSource } from 'typeorm';
 import request from 'supertest';
+import { DataSource } from 'typeorm';
 import { createConnection } from '../../../../../database';
 import { app } from '../../../../../server/http/app';
 
@@ -24,8 +24,17 @@ describe('Create Park', () => {
             car_color: 'Preto',
         });
 
-        console.log(response);
-
         expect(response.status).toBe(201);
+    });
+
+    it('Not Should be able to create a new park with a parked car', async () => {
+        const park = await request(app).post('/park').send({
+            car_id: 'MIJ-5594',
+            car_brand: 'Subaru',
+            car_model: 'Imprenza',
+            car_color: 'Preto',
+        });
+
+        expect(park.status).toBe(400);
     });
 });
