@@ -33,7 +33,7 @@ describe('Create Park', () => {
         });
 
         expect(async () => {
-            const secondPark = await createParkUseCase.execute({
+            await createParkUseCase.execute({
                 car_id: 'MIO-5594',
                 car_brand: 'Subaru',
                 car_model: 'Imprenza',

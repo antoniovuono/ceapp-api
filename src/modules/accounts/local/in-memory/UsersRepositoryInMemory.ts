@@ -22,6 +22,11 @@ class UsersRepositoryInMemory implements IUsersRepository {
 
         return userByEmail;
     }
+
+    async findByCPF(cpf: string): Promise<User> {
+        const userByCPF = this.users.find(user => user.cpf === cpf);
+        return userByCPF;
+    }
 }
 
 export { UsersRepositoryInMemory };
