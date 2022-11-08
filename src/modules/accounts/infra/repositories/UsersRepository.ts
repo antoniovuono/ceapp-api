@@ -11,8 +11,10 @@ class UsersRepository implements IUsersRepository {
         this.repository = AppDataSource.getRepository(User);
     }
 
-    async createAccount(data: IUsersDTO): Promise<User> {
+    async create(data: IUsersDTO): Promise<User> {
         const user = this.repository.create(data);
+
+        console.log(user);
 
         await this.repository.save(user);
 
@@ -20,14 +22,12 @@ class UsersRepository implements IUsersRepository {
     }
 
     async findByEmail(email: string): Promise<User> {
-        const findUser = await this.repository.findOneBy({ email });
-
-        return findUser;
+        const user = await this.repository.findOneBy({ email });
+        return user;
     }
 
     async findByCPF(cpf: string): Promise<User> {
-        const findUser = await this.repository.findOneBy({ cpf });
-
+        const findUser = this.repository.findOneBy({ cpf });
         return findUser;
     }
 }

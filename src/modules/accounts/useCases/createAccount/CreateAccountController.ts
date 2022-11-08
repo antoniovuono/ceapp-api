@@ -8,7 +8,7 @@ class CreateAccountController {
 
         const createAccountUseCase = container.resolve(CreateAccountUseCase);
 
-        createAccountUseCase.execute({
+        await createAccountUseCase.execute({
             name,
             email,
             password,
