@@ -1,0 +1,3 @@
+class AddPricesUseCase {}
+
+export { AddPricesUseCase };

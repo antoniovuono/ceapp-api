@@ -1,0 +1,3 @@
+class AddPricesController {}
+
+export { AddPricesController };

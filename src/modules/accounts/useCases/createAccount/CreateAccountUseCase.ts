@@ -1,4 +1,5 @@
 import { inject, injectable } from 'tsyringe';
+import { hash } from 'bcryptjs';
 import { AppError } from '../../../../errors/AppError';
 import { IUsersDTO } from '../../dtos/IUsersDTO';
 import { User } from '../../infra/entities/User';
@@ -24,10 +25,12 @@ class CreateAccountUseCase {
             throw new AppError('cpf already in use!', 400);
         }
 
+        const encryptedPassword = await hash(password, 8);
+
         const user = await this.userRepository.create({
             name,
             email,
-            password,
+            password: encryptedPassword,
             cpf,
         });
 
