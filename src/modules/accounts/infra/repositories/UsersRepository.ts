@@ -19,7 +19,7 @@ class UsersRepository implements IUsersRepository {
         return user;
     }
 
-    findById(id: string): Promise<User> {
+    async findById(id: string): Promise<User> {
         const user = this.repository.findOneBy({ id });
 
         return user;
@@ -33,6 +33,30 @@ class UsersRepository implements IUsersRepository {
     async findByCPF(cpf: string): Promise<User> {
         const findUser = this.repository.findOneBy({ cpf });
         return findUser;
+    }
+
+    async updateFirstHourPrice(
+        user_id: string,
+        first_hour: number,
+    ): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ first_hour })
+            .where('id = :id', { id: user_id })
+            .execute();
+    }
+
+    async updateOtherHoursPrice(
+        user_id: string,
+        other_hours: number,
+    ): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ other_hours })
+            .where('id = :id', { id: user_id })
+            .execute();
     }
 }
 
