@@ -31,7 +31,6 @@ class ParkRepository implements IParkRepository {
     async listByUser(user_id: string): Promise<Park[]> {
         const parks = this.repository.find({
             where: { user_id },
-            relations: ['user'],
         });
 
         return parks;
