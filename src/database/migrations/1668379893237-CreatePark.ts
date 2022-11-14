@@ -12,6 +12,10 @@ export class CreatePark1666750308436 implements MigrationInterface {
                         isPrimary: true,
                     },
                     {
+                        name: 'user_id',
+                        type: 'uuid',
+                    },
+                    {
                         name: 'car_id',
                         type: 'varchar',
                     },
@@ -51,6 +55,16 @@ export class CreatePark1666750308436 implements MigrationInterface {
                         name: 'updated_at',
                         type: 'timestamp',
                         default: 'now()',
+                    },
+                ],
+                foreignKeys: [
+                    {
+                        name: 'FKUserParking',
+                        referencedTableName: 'users',
+                        referencedColumnNames: ['id'],
+                        columnNames: ['user_id'],
+                        onDelete: 'SET NULL',
+                        onUpdate: 'SET NULL',
                     },
                 ],
             }),

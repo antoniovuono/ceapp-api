@@ -15,9 +15,12 @@ class Park {
     @PrimaryColumn()
     id: string;
 
-    // @ManyToOne(() => User)
-    // @JoinColumn({ name: user_id })
+    @ManyToOne(() => User)
+    @JoinColumn({ name: 'user_id' })
     user: User;
+
+    @Column()
+    user_id: string;
 
     @Column()
     car_id: string;

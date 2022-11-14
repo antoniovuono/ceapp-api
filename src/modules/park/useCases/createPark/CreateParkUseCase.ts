@@ -16,6 +16,7 @@ class CreateParkUseCase {
         car_brand,
         car_model,
         car_color,
+        user_id,
     }: IParkDTO): Promise<Park> {
         const carAlreadyParked = await this.parksRepository.findByLicensePlate(
             car_id,
@@ -26,6 +27,7 @@ class CreateParkUseCase {
         }
 
         const park = await this.parksRepository.create({
+            user_id,
             car_id,
             car_brand,
             car_model,
