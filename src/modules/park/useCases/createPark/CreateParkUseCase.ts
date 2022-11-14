@@ -12,14 +12,15 @@ class CreateParkUseCase {
     ) {}
 
     async execute({
+        user_id,
         car_id,
         car_brand,
         car_model,
         car_color,
-        user_id,
     }: IParkDTO): Promise<Park> {
         const carAlreadyParked = await this.parksRepository.findByLicensePlate(
             car_id,
+            user_id,
         );
 
         if (carAlreadyParked) {

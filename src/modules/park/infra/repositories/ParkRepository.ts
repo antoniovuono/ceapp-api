@@ -19,10 +19,10 @@ class ParkRepository implements IParkRepository {
         return createPark;
     }
 
-    async findByLicensePlate(car_id: string): Promise<Park> {
-        const park = this.repository.findOne({
-            where: { car_id },
-            relations: ['user'],
+    async findByLicensePlate(car_id: string, user_id: string): Promise<Park> {
+        const park = this.repository.findOneBy({
+            car_id,
+            user_id,
         });
 
         return park;
