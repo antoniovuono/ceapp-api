@@ -3,10 +3,7 @@ import { container } from 'tsyringe';
 import { CreateParkUseCase } from './CreateParkUseCase';
 
 class CreateParkController {
-    async handle(
-        request: Request | any,
-        response: Response,
-    ): Promise<Response> {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { car_id, car_brand, car_model, car_color } = request.body;
         const { id } = request.user;
 
@@ -21,7 +18,7 @@ class CreateParkController {
         });
 
         return response
-            .status(201)
+            .status(200)
             .json({ message: 'Park created successfully' });
     }
 }

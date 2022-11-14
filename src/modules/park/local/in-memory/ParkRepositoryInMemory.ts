@@ -24,10 +24,9 @@ class ParkRepositoryInMemory implements IParkRepository {
         return parkByPlate;
     }
 
-    async listAll(): Promise<Park[]> {
-        const parkList = this.parks;
-
-        return parkList;
+    async listByUser(user_id: string): Promise<Park[]> {
+        const parks = this.parks.filter(park => park.user_id === user_id);
+        return parks;
     }
 
     async delete(id: string): Promise<void> {
