@@ -3,6 +3,11 @@ import { AppError } from '../../../../errors/AppError';
 import { IUsersRepository } from '../../../accounts/local/IUsersRepository';
 import { IParkRepository } from '../../local/IParkRepository';
 
+type IRequest = {
+    user_id: string;
+    park_id: string;
+};
+
 @injectable()
 class ListByUserUseCase {
     constructor(
@@ -13,7 +18,7 @@ class ListByUserUseCase {
         private parksRepository: IParkRepository,
     ) {}
 
-    async execute(user_id: string) {
+    async execute({ user_id, park_id }: IRequest) {
         const user = await this.usersRepository.findById(user_id);
 
         if (!user) {

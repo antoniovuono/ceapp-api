@@ -28,12 +28,38 @@ class ParkRepository implements IParkRepository {
         return park;
     }
 
+    async findById(id: string): Promise<Park> {
+        const parks = this.repository.findOneBy({ id });
+        return parks;
+    }
+
     async listByUser(user_id: string): Promise<Park[]> {
         const parks = this.repository.find({
             where: { user_id },
         });
 
         return parks;
+    }
+
+    async updateLeftHour(left_date: Date, park_id: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ left_date })
+            .where('id = :id', { id: park_id })
+            .execute();
+    }
+
+    async updateTotalAmount(
+        total_amount: number,
+        park_id: string,
+    ): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ total_amount })
+            .where('id = :id', { id: park_id })
+            .execute();
     }
 
     delete(id: string): Promise<void> {
