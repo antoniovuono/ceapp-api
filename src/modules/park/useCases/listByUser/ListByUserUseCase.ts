@@ -5,7 +5,6 @@ import { IParkRepository } from '../../local/IParkRepository';
 
 type IRequest = {
     user_id: string;
-    park_id: string;
 };
 
 @injectable()
@@ -18,7 +17,7 @@ class ListByUserUseCase {
         private parksRepository: IParkRepository,
     ) {}
 
-    async execute({ user_id, park_id }: IRequest) {
+    async execute({ user_id }: IRequest) {
         const user = await this.usersRepository.findById(user_id);
 
         if (!user) {

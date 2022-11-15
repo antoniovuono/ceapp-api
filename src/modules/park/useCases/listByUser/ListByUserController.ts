@@ -9,7 +9,7 @@ class ListByUserController {
 
         const listByUser = container.resolve(ListByUserUseCase);
 
-        const parkList = await listByUser.execute(id);
+        const parkList = await listByUser.execute({ user_id: id });
 
         return response.status(200).json(parkList);
     }
