@@ -42,6 +42,13 @@ class ExitCarUseCase {
             throw new AppError('User not found', 401);
         }
 
+        if (user.id !== park.user_id) {
+            throw new AppError(
+                'Unauthorized: You did not have permission to acess this registry',
+                404,
+            );
+        }
+
         const { first_hour, other_hours } = user;
 
         if (!first_hour || !other_hours) {
