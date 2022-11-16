@@ -33,7 +33,7 @@ class ExitCarUseCase {
 
         const inUseHours = this.dateProvider.compareHoursOfUse(
             park.departure_date,
-            park.left_date,
+            exitDate,
         );
 
         const user = await this.usersRepository.findById(user_id);
@@ -51,8 +51,13 @@ class ExitCarUseCase {
             );
         }
 
-        if (inUseHours > 1) {
-            await this.parksRepository.updateTotalAmount(first_hour, park_id);
+        if (inUseHours <= 1) {
+            const first_hour_amont = Number(first_hour);
+
+            await this.parksRepository.updateTotalAmount(
+                first_hour_amont,
+                park_id,
+            );
         } else {
             const formattedInUseHours = inUseHours - 1;
             const inUseFormattedAmount = formattedInUseHours * other_hours;
