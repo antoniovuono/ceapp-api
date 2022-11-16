@@ -62,8 +62,13 @@ class ParkRepository implements IParkRepository {
             .execute();
     }
 
-    delete(id: string): Promise<void> {
-        throw new Error('Method not implemented.');
+    async delete(park_id: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .delete()
+            .from(Park)
+            .where('id = :id', { id: park_id })
+            .execute();
     }
 }
 

@@ -8,7 +8,7 @@ interface IParkRepository {
     findById(id: string): Promise<Park>;
     updateLeftHour(left_date: Date, park_id: string): Promise<void>;
     updateTotalAmount(total_amount: number, park_id: string): Promise<void>;
-    delete(id: string): Promise<void>;
+    delete(park_id: string): Promise<void>;
 }
 
 export { IParkRepository };
