@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 import { IDateProvider } from '../../../../container/providers/DateProvider/IDateProvider';
+import { IPriceCalculatorProvider } from '../../../../container/providers/PriceCalculatorProvider/IPriceCalculatorProvider';
 import { AppError } from '../../../../errors/AppError';
 import { IUsersRepository } from '../../../accounts/local/IUsersRepository';
 import { IParkRepository } from '../../local/IParkRepository';
@@ -18,6 +19,8 @@ class ExitCarUseCase {
         private dateProvider: IDateProvider,
         @inject('UsersRepository')
         private usersRepository: IUsersRepository,
+        @inject('PriceCalculatorProvider')
+        private calculatePriceProvider: IPriceCalculatorProvider,
     ) {}
 
     async execute({ park_id, user_id }: IRequest): Promise<void> {
@@ -58,20 +61,16 @@ class ExitCarUseCase {
             );
         }
 
-        if (inUseHours <= 1) {
-            const first_hour_amont = Number(first_hour);
-
-            await this.parksRepository.updateTotalAmount(
-                first_hour_amont,
-                park_id,
-            );
+        if (inUseHours <= 0) {
+            await this.parksRepository.updateTotalAmount(first_hour, park_id);
         } else {
-            const formattedInUseHours = inUseHours - 1;
-            const inUseFormattedAmount = formattedInUseHours * other_hours;
+            const totalPrice = this.calculatePriceProvider.calculatePrice(
+                first_hour,
+                other_hours,
+                inUseHours,
+            );
 
-            const totalAmount = Number(inUseFormattedAmount + first_hour);
-
-            await this.parksRepository.updateTotalAmount(totalAmount, park_id);
+            await this.parksRepository.updateTotalAmount(totalPrice, park_id);
         }
     }
 }
