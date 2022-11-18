@@ -8,6 +8,8 @@ interface IUsersRepository {
     findByCPF(cpf: string): Promise<User>;
     updateFirstHourPrice(user_id: string, first_hour: number): Promise<void>;
     updateOtherHoursPrice(user_id: string, other_hours: number): Promise<void>;
+    updateName(name: string, user_id: string): Promise<void>;
+    updatePassword(user_id: string, password: string): Promise<void>;
 }
 
 export { IUsersRepository };

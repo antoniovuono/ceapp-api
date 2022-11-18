@@ -58,6 +58,24 @@ class UsersRepository implements IUsersRepository {
             .where('id = :id', { id: user_id })
             .execute();
     }
+
+    async updateName(name: string, user_id: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ name })
+            .where('id = :id', { id: user_id })
+            .execute();
+    }
+
+    async updatePassword(user_id: string, password: string): Promise<void> {
+        await this.repository
+            .createQueryBuilder()
+            .update()
+            .set({ password })
+            .where('id = :id', { id: user_id })
+            .execute();
+    }
 }
 
 export { UsersRepository };
