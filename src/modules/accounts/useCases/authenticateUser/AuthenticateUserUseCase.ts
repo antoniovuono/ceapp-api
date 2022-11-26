@@ -38,6 +38,8 @@ class AuthenticateUserUseCase {
             user: {
                 name: user.name,
                 email: user.email,
+                first_hour: user.first_hour,
+                other_hours: user.other_hours,
             },
         };
 
